@@ -1,5 +1,6 @@
 import React from "react";
 import useGlobal from "../Store";
+import { Button, Input } from "antd";
 
 const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
   const [global, action] = useGlobal();
@@ -10,8 +11,13 @@ const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
       <br />
       firstName {firstName}
       <hr />
-      <button onClick={() => action.setCountPlusOne()}>+1</button>
-      <button onClick={() => action.setCountReduceOne()}>-1</button>
+      <Button type="primary" danger onClick={() => action.setCountPlusOne()}>
+        +1
+      </Button>
+      <span> </span>
+      <Button type="primary" onClick={() => action.setCountReduceOne()}>
+        -1
+      </Button>
     </div>
   );
 };
@@ -32,7 +38,7 @@ const C1 = () => {
       <hr />
       <div>
         First Name:
-        <input
+        <Input
           value={state.person.firstName}
           onChange={(event) => {
             const firstName = event.target.value;
@@ -42,7 +48,7 @@ const C1 = () => {
       </div>
       <div>
         Last Name:
-        <input
+        <Input
           value={state.person.lastName}
           onChange={(event) => {
             const lastName = event.target.value;
@@ -52,7 +58,7 @@ const C1 = () => {
       </div>
       <div>
         Age:
-        <input
+        <Input
           value={state.person.age}
           onChange={(event) => {
             const age = Number(event.target.value) || 0;
@@ -60,7 +66,9 @@ const C1 = () => {
           }}
         />
       </div>
-      <button onClick={() => updatePerson()}>赋值新的Person</button>
+      <Button type="primary" onClick={() => updatePerson()}>
+        赋值新的Person
+      </Button>
     </div>
   );
 };

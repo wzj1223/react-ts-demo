@@ -1,6 +1,7 @@
 import React from "react";
 import { useTracked } from "./state";
 import * as Constants from "./Constants";
+import { Button } from "antd";
 
 let numRendered = 0;
 
@@ -13,18 +14,18 @@ const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
       {firstName}
       <div>
         <span>Count:{state.count}</span>
-        <button
-          type="button"
+        <Button
+          type="primary"
           onClick={() => dispatch({ type: Constants.INCREMENT })}
         >
           +1
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
+          type="primary"
           onClick={() => dispatch({ type: Constants.DECREMENT })}
         >
           -1
-        </button>
+        </Button>
       </div>
     </div>
   );
